@@ -6,6 +6,9 @@ var login = require('./controller/login');
 
 var logout = require('./controller/logout');
 
+var employee = require('./controller/employee')
+
+
 var app = express();
 
 app.set('view engine','ejs');
@@ -13,6 +16,8 @@ app.set('view engine','ejs');
 app.use(bodyParser());
 app.use('/login',login);
 app.use('/logout',logout);
+app.use('/employee',employee);
+
 
 app.get('/',(req,res)=>{
     res.send("this is index page!<br> <a href='/login'>Click here to Login </a> ");

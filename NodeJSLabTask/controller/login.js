@@ -2,7 +2,7 @@ var express  = require('express');
 
 var router = express.Router();
 
-var globUsername;
+
 
 router.get('/',(req,res)=>{
     res.render('login/index');
@@ -10,24 +10,19 @@ router.get('/',(req,res)=>{
 
 router.post('/', function(req, res){
 
-	/* if(req.body.username == req.body.password){
-		res.redirect('/home');
-	}else{
-		res.send('invalid username/password');
-    } */
-
     const fs = require('fs');
-
     fs.readFile('users.json', (err, data) => {
         if (err) throw err;
         let users = JSON.parse(data);
-        
         var flag=false;
+        var isEmp=false;
+
         for(x in users.employee)
         {
-        
             if(req.body.username==users.employee[x].username && req.body.password==users.employee[x].password)
             {
+                globUsername=req.body.username;
+                isEmp=true;
                 flag=true;
                 console.log("correct cred");
                 break;
@@ -36,7 +31,6 @@ router.post('/', function(req, res){
 
          if(flag)
         {
-            
             for(x in users.admin)
             {
                 if(req.body.username==users.admin[x].username && req.body.password==users.admin[x].password)
@@ -54,18 +48,16 @@ router.post('/', function(req, res){
         }
         else
         {
-           res.send("correct cred !");
+            if(isEmp)
+            {
+                //res.redirect("/employee?username="+globUsername);
+                res.render("employee/index",{name:globUsername});
+            }
+           //res.send("correct cred !");
         }
-        
-
 
     });
-
-
-
-
-
 });
 
-
-module.exports =router;
+module.exports = router;
+//module.exports = globUsername;
