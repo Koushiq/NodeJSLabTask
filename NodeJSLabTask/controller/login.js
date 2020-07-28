@@ -2,13 +2,13 @@ var express  = require('express');
 
 var router = express.Router();
 
-
-
 router.get('/',(req,res)=>{
     res.render('login/index');
 });
 
-router.post('/', function(req, res){
+var globUsername=undefined;
+
+router.post('/', (req, res)=>{
 
     const fs = require('fs');
     fs.readFile('users.json', (err, data) => {
@@ -29,12 +29,13 @@ router.post('/', function(req, res){
             }
         }
 
-         if(flag)
+         if(!flag)
         {
             for(x in users.admin)
             {
                 if(req.body.username==users.admin[x].username && req.body.password==users.admin[x].password)
                 {
+                    globUsername=req.body.username;
                     flag=true;
                     console.log("correct cred");
                     break;
@@ -50,14 +51,20 @@ router.post('/', function(req, res){
         {
             if(isEmp)
             {
-                //res.redirect("/employee?username="+globUsername);
-                res.render("employee/index",{name:globUsername});
+                
+               res.redirect("/employee");
+               
             }
-           //res.send("correct cred !");
+            else
+            {
+              
+               res.redirect("/admin");
+            }
+           
         }
 
     });
 });
 
+
 module.exports = router;
-//module.exports = globUsername;

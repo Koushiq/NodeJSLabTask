@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Adding a employee </h1>
+    <form method="POST" action="admin">
+        <input type="text" name="username" id="" placeholder="Enter username"><br>
+        <input type="text" name="password" id="" placeholder="Enter password"><br>
+        <input type="number" name="phonenumber" id="" placeholder="Enter Phone number"><br>
+        <input type="email" name="email" id="" placeholder="Enter Email Address"><br>
+        Male:
+        <input type="radio" name="genderM" id="">
+        Female:
+        <input type="radio" name="genderF" id="">
+        <br>
+        <select name="designation" id="">
+            <option value="" selected="selected" disabled>Select a role</option>
+            <option value="">Manager</option>
+            <option value="">Receptionist</option>
+        </select>
+        <br>
+        <input type="submit" value="Add Entry" name="addEntry">
+        <br>
+        <a href="/admin"><input type="button" value="back"></a>
+    </form>
+
+</body>
+</html>

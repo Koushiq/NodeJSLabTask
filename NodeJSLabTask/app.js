@@ -8,15 +8,23 @@ var logout = require('./controller/logout');
 
 var employee = require('./controller/employee')
 
+var admin = require('./controller/admin');
 
 var app = express();
 
 app.set('view engine','ejs');
 
+
 app.use(bodyParser());
 app.use('/login',login);
 app.use('/logout',logout);
 app.use('/employee',employee);
+app.use('/admin',admin);
+app.use('/admin/AddEmployee',admin);
+app.use("/admin/AllEmployeeList",admin);
+app.use("/admin/Update",admin);
+app.use("/admin/Delete",admin);
+
 
 
 app.get('/',(req,res)=>{

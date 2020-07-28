@@ -5,10 +5,10 @@ var router = express.Router();
 
 var globUsername = require('./login').globUsername;
 
-console.log(globUsername);
+
 
 router.get('/',(req,res)=>{
-    res.render('Employee/index');
+    res.render('employee/index');
 });
 
 
