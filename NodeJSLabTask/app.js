@@ -19,6 +19,8 @@ app.use(bodyParser());
 app.use('/login',login);
 app.use('/logout',logout);
 app.use('/employee',employee);
+app.use('/employee/MyProfile',employee);
+app.use('/employee/UpdateProfile',employee);
 app.use('/admin',admin);
 app.use('/admin/AddEmployee',admin);
 app.use("/admin/AllEmployeeList",admin);

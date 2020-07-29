@@ -12,4 +12,17 @@ router.get('/',(req,res)=>{
 });
 
 
+
+router.get('/MyProfile',(req,res)=>{
+    res.render('employee/MyProfile/index');
+});
+
+router.get('/UpdateProfile',(req,res)=>{
+    res.render('employee/UpdateProfile/index');
+});
+
+
+
+
+
 module.exports =router;

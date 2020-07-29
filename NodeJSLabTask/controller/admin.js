@@ -22,12 +22,14 @@ router.get('/AllEmployeeList',(req,res)=>{
     res.render("admin/AllEmployeeList/index");
 });
 
-router.get('/Update',(req,res)=>{
-    res.render("admin/Update/index");
+router.get('/Update/:id',(req,res)=>{
+
+    res.render("admin/Update/index",{name:req.params.id});
 });
 
-router.get('/Delete',(req,res)=>{
-    res.render("admin/Delete/index");
+router.get('/Delete/:id',(req,res)=>{
+    console.log("I am here");
+    res.render("admin/Delete/index",{name:req.params.id});
 });
 
 
