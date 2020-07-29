@@ -18,12 +18,8 @@ router.get('/AddEmployee',(req,res)=>{
 });
 
 router.get('/AllEmployeeList',(req,res)=>{
-    const fs = require('fs');
-    let users=undefined;
-    fs.readFile('users.json', (err, data) => {
-         users = JSON.parse(data);
-    });
-    res.render("admin/AllEmployeeList/index",users);
+
+    res.render("admin/AllEmployeeList/index");
 });
 
 router.get('/Update',(req,res)=>{
